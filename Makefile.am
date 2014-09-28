@@ -18,7 +18,8 @@ EXTRA_DIST	= example.conf m4/gnulib-cache.m4 linux-usb-cgminer \
 
 SUBDIRS		= lib compat ccan
 
-AM_CPPFLAGS	= $(PTHREAD_FLAGS) -fno-strict-aliasing $(JANSSON_INCLUDES) $(USBUTILS_INCLUDES)
+#AM_CPPFLAGS	= $(PTHREAD_FLAGS) -fno-strict-aliasing $(JANSSON_INCLUDES) $(USBUTILS_INCLUDES)
+AM_CPPFLAGS	= $(PTHREAD_FLAGS) -fno-strict-aliasing
 
 bin_PROGRAMS	= cgminer
 
@@ -36,6 +37,7 @@ else
 cgminer_CPPFLAGS = -I$(top_builddir)/lib -I$(top_srcdir)/lib @OPENCL_FLAGS@ @LIBCURL_CFLAGS@
 endif
 
+cgminer_CPPFLAGS += $(JANSSON_INCLUDES) $(USBUTILS_INCLUDES)
 cgminer_CPPFLAGS += $(ADL_CPPFLAGS)
 cgminer_CPPFLAGS += $(NVML_CFLAGS)
 
