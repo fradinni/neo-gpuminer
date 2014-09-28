@@ -1,6 +1,9 @@
 #!/bin/sh
 
-#Make cgminer
+# Configure cgminer build
+sh autogen.sh --enable-scrypt --enable-neoscrypt --enable-keccak
+
+#Build cgminer
 make
 
 #Create distributable achrive
